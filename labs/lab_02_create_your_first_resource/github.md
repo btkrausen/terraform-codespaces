@@ -43,8 +43,8 @@ Open `main.tf` and add the following configuration (purposely not written in HCL
 
 ```hcl
 # Create the repository
-resource "github_repository" "example" {
-  name = "terraform-example"
+resource "github_repository" "terraform" {
+  name = "terraform-course-repo"
   description = "Repository created by Terraform"
   visibility = "private"
 
@@ -83,7 +83,7 @@ terraform plan
 
 The plan output will show that Terraform intends to create:
 - A new private repository with specified features
-- A branch protection rule requiring one review for the main branch
+- No branch protection rule for the main branch
 
 ### 6. Apply the Configuration
 
@@ -100,14 +100,13 @@ Let's verify our resources in the GitHub web interface:
 
 1. Open your web browser and navigate to `GitHub.com`
 2. Go to your repositories list
-3. You should see the new `terraform-example` repository
+3. You should see the new `terraform-course-repo` repository
 4. Click into the repository to verify:
    - The repository description
    - The enabled features (Issues, Discussions, Wiki)
    - The repository topics
 5. Navigate to Settings → Branches to verify:
-   - The branch protection rule is applied to the main branch
-   - Pull request reviews are required
+   - No branch protection rule is applied to the main branch
 
 ### 8. Update the Repository Settings
 
