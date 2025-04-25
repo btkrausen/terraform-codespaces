@@ -126,22 +126,22 @@ Let's verify our resources in the GitHub web interface:
 In the `main.tf` file, update the repository configuration:
 
 ```hcl
-resource "github_repository" "terraform" {
-  name        = "terraform-course-repo"
-  description = "Updated repository description"  # <-- change description
+resource "github_repository" "example" {
+  name        = "terraform-example"
+  description = "Updated repository description" # <-- change description
   visibility  = "public"
 
   auto_init = true
 
   has_issues      = true
   has_discussions = true
-  has_wiki        = false  # <-- change wiki setting
+  has_wiki        = false # <-- change wiki setting
 
   allow_merge_commit = true
   allow_squash_merge = true
   allow_rebase_merge = true
 
-  topics = ["terraform", "infrastructure-as-code", "learning"]  # <-- add topic
+  topics = ["terraform", "infrastructure-as-code", "learning"] # <-- add topic
 }
 ```
 
