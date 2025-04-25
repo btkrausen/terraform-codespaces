@@ -172,7 +172,7 @@ In the `main.tf` file, update the branch protection configuration:
 
 ```hcl
 resource "github_branch_protection" "main" {
-  repository_id = github_repository.terraform.node_id
+  repository_id = github_repository.example.node_id
   pattern       = "main"
 
   required_pull_request_reviews {
