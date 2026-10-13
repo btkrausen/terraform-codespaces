@@ -107,8 +107,8 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "subnet_count" {
   count             = 3
   vpc_id            = aws_vpc.main.id
-  cidr_block        = var.subnet_cidr_blocks[count.index]
-  availability_zone = var.availability_zones[count.index]
+  cidr_block        = var.subnet_config[sort(keys(var.subnet_config))[count.index]
+  availability_zone = var.subnet_azs[sort(keys(var.subnet_config))[count.index]]
 
   tags = {
     Name = "subnet-count-${count.index + 1}"
